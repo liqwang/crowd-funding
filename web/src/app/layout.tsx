@@ -5,7 +5,7 @@ import './global.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Crowd Funding DApp'
+  title: 'Crowd Funding ÐApp'
 }
 
 export default function RootLayout({
@@ -37,6 +37,10 @@ export default function RootLayout({
                 />
               </svg>
               Projects
+            </a>
+            <a className="btn btn-ghost text-lg">
+              <i className="icon-[ic--round-plus] w-7 h-7"/>
+              New
             </a>
           </div>
           <div className="navbar-center">
