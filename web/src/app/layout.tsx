@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 import './global.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,14 +22,14 @@ export default function RootLayout({
         {/* https://tailwindcss.com/docs/border-width#individual-sides */}
         <div className="navbar bg-base-100 border-b-2 sticky top-0 z-50">
           <div className="navbar-start">
-            <a className="btn btn-ghost text-lg">
+            <Link href="/" className="btn btn-ghost text-lg">
               <i className="icon-[tabler--archive] w-7 h-7"/>
               Projects
-            </a>
-            <a className="btn btn-ghost text-lg">
+            </Link>
+            <Link href="/new" className="btn btn-ghost text-lg">
               <i className="icon-[ic--round-plus] w-7 h-7"/>
               New
-            </a>
+            </Link>
           </div>
           <div className="navbar-center">
             <label className="input input-bordered flex items-center gap-2">
@@ -37,10 +38,10 @@ export default function RootLayout({
             </label>
           </div>
           <div className="navbar-end">
-            <a className="btn btn-ghost text-lg">
+            <Link href="/me" className="btn btn-ghost text-lg">
               <i className="icon-[charm--person] w-7 h-7"/>
               Home
-            </a>
+            </Link>
           </div>
         </div>
         {children}
