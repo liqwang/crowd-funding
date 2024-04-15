@@ -19,16 +19,8 @@ export default function Projects() {
     // https://tailwindcss.com/docs/margin
     <div className="flex justify-center my-8">
       {/* https://tailwindcss.com/docs/grid-template-columns#breakpoints-and-media-queries */}
-      <div className="grid gap-4 xl:grid-cols-3 md:grid-cols-2">
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+      <div className="grid gap-4 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2">
+        {Array.from({ length: 12 }).map((_, i) => <Card key={`card-${i}`}/>)}
       </div>
     </div>
   )
