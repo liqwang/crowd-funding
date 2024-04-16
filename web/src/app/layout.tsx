@@ -44,7 +44,10 @@ export default function RootLayout({
             </Link>
           </div>
         </div>
-        {children}
+        {/* https://tailwindcss.com/docs/margin */}
+        <div className="flex justify-center my-8">
+          {children}
+        </div>
       </body>
     </html>
   )
