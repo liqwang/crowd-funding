@@ -2,6 +2,11 @@
 node_modules/
 .vscode/
 
-# [web]
+#[eth]
+cache/
+artifacts/
+typechain-types/
+
+#[web]
 .next/
 next-env.d.ts
