@@ -15,11 +15,11 @@ const config: Config = {
     }
   },
   plugins: [
-    //https://daisyui.com/docs/install
+    // https://daisyui.com/docs/install
     require('daisyui'),
     
-    //https://iconify.design/docs/usage/css/tailwind
-    //https://marketplace.visualstudio.com/items?itemName=antfu.iconify
+    // https://iconify.design/docs/usage/css/tailwind
+    // https://marketplace.visualstudio.com/items?itemName=antfu.iconify
     addDynamicIconSelectors()
   ]
 }
