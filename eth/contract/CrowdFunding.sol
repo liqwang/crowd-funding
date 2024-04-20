@@ -3,7 +3,7 @@ pragma solidity ^0.8.24;
 
 import "hardhat/console.sol";
 
-contract Fund {
+contract CrowdFunding {
     function createProject(
         string memory title
     ) public pure {
