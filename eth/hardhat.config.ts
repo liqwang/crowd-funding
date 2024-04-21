@@ -12,6 +12,9 @@ const config: HardhatUserConfig = {
       chainId: 11155111
     }
   },
+  etherscan: { // https://hardhat.org/ignition/docs/guides/verify
+    apiKey: process.env.ETHERSCAN_API_KEY
+  },
   paths: { // https://hardhat.org/hardhat-runner/docs/config#path-configuration
     sources: "./contract"
   }
