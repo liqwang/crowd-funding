@@ -4,4 +4,6 @@
   - [Tailwind CSS](https://tailwindcss.com): Atomic CSS framework
 - [daisyUI](https://daisyui.com) v4.10: UI component library for Tailwind CSS
 - [Iconify](https://iconify.design): Icon library, [integrate with Tailwind CSS](https://iconify.design/docs/usage/css/tailwind/#installation)
+- [Wagmi](https://wagmi.sh) v2.5: React Hooks for Ethereum
+  - [Viem](https://viem.sh) v2.9: TypeScript interface for Ethereum
 - [pnpm](https://pnpm.io): Fast and disk space efficient package manager
