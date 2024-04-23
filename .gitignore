@@ -7,7 +7,6 @@ cache/
 artifacts/
 typechain-types/
 deployments/
-.env
 
 #[web]
 .next/
