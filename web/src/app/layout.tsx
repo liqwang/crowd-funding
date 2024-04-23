@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 
 import './global.css'
-import EthProvider from '@/component/EthProvider'
+import EthProvider from '@/context/EthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 

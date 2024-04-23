@@ -1,10 +1,11 @@
+// https://wagmi.sh/react/getting-started#setup-tanstack-query
 'use client'
 
 import { WagmiProvider } from 'wagmi'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { ReactNode } from 'react'
 
-import config from '@/../wagmi.config'
+import { config } from '@/../wagmi.config'
 
 
 const queryClient = new QueryClient() 
