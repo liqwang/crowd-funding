@@ -5,7 +5,7 @@
 
 import { useReadContract } from 'wagmi'
 
-import Card from '@/component/Card'
+import Card from '@/component/card'
 import type { Project } from '@/lib/definition'
 import { contractConfig } from '@/../wagmi.config'
 
