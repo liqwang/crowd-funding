@@ -10,18 +10,20 @@ contract CrowdFunding {
         Project memory project;
         projects.push(project);
     }
-
+    
     struct Project {
         address owner;
         string title;
         string description;
-        uint target;        //wei
-        uint collected;     //wei
-        uint withdrawed;    //wei
-        uint deadline;      //timestamp(second)
+        string imageUrl;
+        bool closed;
+        uint target;        // wei
+        uint collected;     // wei
+        uint withdrawed;    // wei
     }
 
     modifier onlyOwner(uint id) {
+        require(id < projects.length, "project id not found");
         require(msg.sender == projects[id].owner, "only owner can call this function");
         _;
     }
@@ -35,16 +37,12 @@ contract CrowdFunding {
         payable(msg.sender).transfer(amount);
     }
 
-    /**
-     * @param deadline timestamp(second)
-     */
     function createProject(
         string memory title,
         string memory description,
-        uint target,
-        uint deadline
+        string memory imageUrl,
+        uint target
     ) public returns (uint id) {
-        require(deadline > block.timestamp, "deadline must be in the future");
         require(target > 0, "target must be bigger than 0");
 
         //`projects.push()` creates a new `Project` instance and returns the reference to it
@@ -52,9 +50,29 @@ contract CrowdFunding {
         project.owner = msg.sender;
         project.title = title;
         project.description = description;
+        project.imageUrl = imageUrl;
         project.target = target;
-        project.deadline = deadline;
         return projects.length - 1;
+    }
+
+    function modifyProject(
+        uint id,
+        string memory title,
+        string memory description,
+        string memory imageUrl,
+        uint target
+    ) public onlyOwner(id) {
+        require(target > 0, "target must be bigger than 0");
+
+        projects[id].title = title;
+        projects[id].description = description;
+        projects[id].imageUrl = imageUrl;
+        projects[id].target = target;
+    }
+
+    function closeProject(uint id) public onlyOwner(id) {
+        require(!projects[id].closed, "project already been closed");
+        projects[id].closed = true;
     }
 
     function totalCollected() public view returns (uint) {
@@ -67,6 +85,8 @@ contract CrowdFunding {
 
     function donate(uint id) public payable {
         require(msg.value > 0, "donate amount can't be zero");
+        require(id < projects.length, "project id not found");
+        require(!projects[id].closed, "project is closed");
         projects[id].collected += msg.value;
     }
 
