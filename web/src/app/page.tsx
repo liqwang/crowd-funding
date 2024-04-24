@@ -18,11 +18,9 @@ export default function Projects() {
     ...contractConfig,
     functionName: 'getProjects'
   })
-  if (isPending) {
-    // https://daisyui.com/components/loading
-    return <span className="loading loading-spinner loading-lg"></span>
-  }
   return (
+    isPending ? // https://daisyui.com/components/loading
+    <span className="loading loading-spinner loading-lg"></span> :
     // https://tailwindcss.com/docs/grid-template-columns#breakpoints-and-media-queries
     <div className="grid gap-4 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2">
       {(projects as Project[]).map((project, i) =>
