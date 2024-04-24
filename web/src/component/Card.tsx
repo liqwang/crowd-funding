@@ -1,4 +1,6 @@
-//card for a project
+import Image from 'next/image'
+
+// card for a project
 export default function Card ({
   title,
   imageUrl
@@ -8,7 +10,8 @@ export default function Card ({
 }) {
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
-      <figure><img src={imageUrl} alt="cover"/></figure>
+      {/* https://nextjs.org/docs/messages/no-img-element */}
+      <figure><Image src={imageUrl} alt="cover"/></figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p>{title}</p>
