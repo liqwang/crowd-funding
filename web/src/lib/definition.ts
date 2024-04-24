@@ -1,15 +1,10 @@
 export type Project = {
-  id: number
-  name: string
-  address?: string
-  ens?: string
+  owner: string
+  title: string
+  imageUrl: string
   description: string
-  targetFund: string
-  currentFund: string
-}
-
-export type User = {
-  address: string
-  ens: string
-  projects: Project[]
+  target: number      //wei
+  collected: number   //wei
+  withdrawed: number  //wei
+  deadline: number    //timestamp(second)
 }
