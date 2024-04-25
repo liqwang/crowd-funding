@@ -1,6 +1,5 @@
 'use client'
 
-import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -9,9 +8,8 @@ export default function NewProject() {
   const [uploading, setUploading] = useState(false)
   return (
     <> {/* https://react.dev/reference/react/Fragment */}
-      <Head>
-        <title>My New Title</title>
-      </Head>
+      {/* https://github.com/vercel/next.js/discussions/50872#discussioncomment-9067944 */}
+      <title>New Project</title>
       {/* https://tailwindcss.com/docs/flex-direction#column */}
       {/* https://tailwindcss.com/docs/width#percentage-widths */}
       <div className="flex flex-col w-1/3 text-sm">
