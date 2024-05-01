@@ -26,8 +26,8 @@ export default function NewProject() {
         {/* https://stackoverflow.com/a/33822113 */}
         <label htmlFor="upload-file" className="btn btn-neutral mt-4 w-1/3">{
           uploading ?
-          <span className="loading loading-spinner"/> :
-          'Upload Image'
+          <><span className="loading loading-spinner"/>Uploading...</> :
+          <><i className="icon-[icon-park-outline--picture-one] w-6 h-6"/>Upload Image</>
         }</label>
         <input id="upload-file"
           type="file" className="hidden"
