@@ -7,7 +7,7 @@ import { useReadContract } from 'wagmi'
 
 import Card from '@/component/card'
 import type { Project } from '@/lib/definition'
-import { contractConfig } from '@/../wagmi.config'
+import { contractConfig } from '@/../eth.config'
 
 
 export default function Projects() {
