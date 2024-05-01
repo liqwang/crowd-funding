@@ -1,3 +1,4 @@
+import { PropsWithChildren } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
@@ -15,11 +16,7 @@ export const metadata: Metadata = {
   title: 'Crowd Funding ÐApp'
 }
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout(props: PropsWithChildren) {
   // https://docs.walletconnect.com/web3modal/nextjs/about#layout
   const initialState = cookieToInitialState(config, headers().get('cookie'))
   return (
@@ -55,7 +52,7 @@ export default function RootLayout({
           </div>
           {/* https://tailwindcss.com/docs/margin */}
           <div className="flex justify-center my-8">
-            {children}
+            {props.children}
           </div>
         </Web3ModalProvider>
       </body>
