@@ -2,10 +2,19 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import { useAccount, useWriteContract } from 'wagmi'
+
+import { contractConfig } from '@/../eth.config'
+
 
 export default function NewProject() {
+  const [title, setTitle] = useState('')
+  const [targetFund, setTargetFund] = useState(0)
   const [imageUrl, setImageUrl] = useState('')
   const [uploading, setUploading] = useState(false)
+  const [description, setDescription] = useState('')
+  const { isConnected } = useAccount()
+  const { isPending, writeContract } = useWriteContract()
   return (
     <> {/* https://react.dev/reference/react/Fragment */}
       {/* https://github.com/vercel/next.js/discussions/50872#discussioncomment-9067944 */}
@@ -15,13 +24,14 @@ export default function NewProject() {
       <div className="flex flex-col w-1/3 text-sm">
         <label className="font-semibold ml-1 mb-1">Title</label>
         {/* https://daisyui.com/components/input */}
-        <input type="text" className="input input-bordered input-sm"/>
-
-        <label className="font-semibold ml-1 mb-1 mt-4">ETH address / ENS domain</label>
-        <input type="text" className="input input-bordered input-sm w-2/3"/>
+        <input type="text" className="input input-bordered input-sm"
+          onChange={(event) => setTitle(event.target.value)}
+        />
 
         <label className="font-semibold ml-1 mb-1 mt-4">Target Fund (ETH)</label>
-        <input type="text" className="input input-bordered input-sm w-1/2"/>
+        <input type="text" className="input input-bordered input-sm w-1/2"
+          onChange={(event) => setTargetFund(Number(event.target.value))}
+        />
 
         {/* https://stackoverflow.com/a/33822113 */}
         <label htmlFor="upload-file" className="btn btn-neutral mt-4 w-1/3">{
@@ -41,14 +51,35 @@ export default function NewProject() {
             }
           }}
         />
-        <Image src={imageUrl}
-          hidden={imageUrl===''} alt="image"
+        {imageUrl &&
+        <Image src={imageUrl} alt="image"
           className="mt-4 rounded-box"
           width={200} height={200}
-        />
+        />}
 
         <label className="font-semibold ml-1 mb-1 mt-4">Description</label>
-        <textarea className="textarea textarea-bordered h-64"/>
+        <textarea className="textarea textarea-bordered h-64"
+          onChange={(event) => setDescription(event.target.value)}
+        />
+
+        <div className="mt-4">
+        {isConnected ?
+          <button className="btn bg-sky-400 hover:bg-sky-500 text-white text-lg w-1/3"
+            onClick={()=>{
+              console.log([title, description, imageUrl, targetFund])
+              writeContract({
+                ...contractConfig,
+                functionName: 'createProject',
+                args: [title, description, imageUrl, targetFund]
+              })
+            }}
+          >{isPending ?
+              <><span className="loading loading-spinner"/>Creating...</> :
+              <><i className="icon-[ic--round-plus] w-7 h-7"/>Create</>
+          }</button> :
+          <w3m-connect-button/>
+        }
+        </div>
       </div>
     </>
   )

@@ -17,7 +17,12 @@ createWeb3Modal({
   wagmiConfig: config,
   projectId,
   enableAnalytics: true, // optional - defaults to your Cloud configuration
-  enableOnramp: true // optional - false as default
+  enableOnramp: true, // optional - false as default
+  themeMode: 'light',
+  // https://docs.walletconnect.com/web3modal/nextjs/theming
+  themeVariables: {
+    '--w3m-border-radius-master': '1px'
+  }
 })
 
 export default function Web3ModalProvider({
