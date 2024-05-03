@@ -3,13 +3,14 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { useAccount } from 'wagmi'
+import { parseEther } from 'viem'
 
 import { useWriteCrowdFunding } from '@/contract'
 
 
 export default function NewProject() {
   const [title, setTitle] = useState('')
-  const [targetFund, setTargetFund] = useState(0)
+  const [targetFund, setTargetFund] = useState('')
   const [imageUrl, setImageUrl] = useState('')
   const [uploading, setUploading] = useState(false)
   const [description, setDescription] = useState('')
@@ -30,7 +31,7 @@ export default function NewProject() {
 
         <label className="font-semibold ml-1 mb-1 mt-4">Target Fund (ETH)</label>
         <input type="text" className="input input-bordered input-sm w-1/2"
-          onChange={(event) => setTargetFund(Number(event.target.value))}
+          onChange={(event) => setTargetFund(event.target.value)}
         />
 
         {/* https://stackoverflow.com/a/33822113 */}
@@ -69,7 +70,7 @@ export default function NewProject() {
               console.log([title, description, imageUrl, targetFund])
               writeContract({
                 functionName: 'createProject',
-                args: [title, description, imageUrl, BigInt(targetFund)]
+                args: [title, description, imageUrl, parseEther(targetFund)]
               })
             }}
           >{isPending ?
