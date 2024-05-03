@@ -1,10 +1,13 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 // card for a project
 export default function Card ({
+  id,
   title,
   imageUrl
 }: {
+  id: number
   title: string
   imageUrl: string
 }) {
@@ -16,7 +19,7 @@ export default function Card ({
         <h2 className="card-title">{title}</h2>
         <p>{title}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Detail</button>
+          <Link href={`/project/${id}`} className="btn btn-primary">Detail</Link>
         </div>
       </div>
     </div>

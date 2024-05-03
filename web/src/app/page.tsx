@@ -19,7 +19,7 @@ export default function Projects() {
     <div className="grid gap-4 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2">
       {projects!.map((project, i) =>
       i === 0 ? null:
-      <Card key={`card-${i}`} title={project.title} imageUrl={project.imageUrl}/>)}
+      <Card key={`card-${i}`} id={i} title={project.title} imageUrl={project.imageUrl}/>)}
     </div>
   )
 }
