@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { useAccount, useWriteContract } from 'wagmi'
+import { useAccount } from 'wagmi'
 
-import { contractConfig } from '@/../eth.config'
+import { useWriteCrowdFunding } from '@/contract'
 
 
 export default function NewProject() {
@@ -14,7 +14,7 @@ export default function NewProject() {
   const [uploading, setUploading] = useState(false)
   const [description, setDescription] = useState('')
   const { isConnected } = useAccount()
-  const { isPending, writeContract } = useWriteContract()
+  const { isPending, writeContract } = useWriteCrowdFunding()
   return (
     <> {/* https://react.dev/reference/react/Fragment */}
       {/* https://github.com/vercel/next.js/discussions/50872#discussioncomment-9067944 */}
@@ -68,9 +68,8 @@ export default function NewProject() {
             onClick={()=>{
               console.log([title, description, imageUrl, targetFund])
               writeContract({
-                ...contractConfig,
                 functionName: 'createProject',
-                args: [title, description, imageUrl, targetFund]
+                args: [title, description, imageUrl, BigInt(targetFund)]
               })
             }}
           >{isPending ?
