@@ -15,7 +15,7 @@ export default function NewProject() {
   const [uploading, setUploading] = useState(false)
   const [description, setDescription] = useState('')
   const { isConnected } = useAccount()
-  const { isPending, writeContract } = useWriteCrowdFunding()
+  const { isPending, writeContract: writeCrowdFunding } = useWriteCrowdFunding()
   return (
     <> {/* https://react.dev/reference/react/Fragment */}
       {/* https://github.com/vercel/next.js/discussions/50872#discussioncomment-9067944 */}
@@ -68,7 +68,7 @@ export default function NewProject() {
           <button className="btn bg-sky-400 hover:bg-sky-500 text-white text-lg w-1/3"
             onClick={()=>{
               console.log([title, description, imageUrl, targetFund])
-              writeContract({
+              writeCrowdFunding({
                 functionName: 'createProject',
                 args: [title, description, imageUrl, parseEther(targetFund)]
               })
