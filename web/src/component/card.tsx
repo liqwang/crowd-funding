@@ -11,7 +11,7 @@ export default function Card ({
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       {/* https://nextjs.org/docs/messages/no-img-element */}
-      <figure><Image src={imageUrl} alt="cover"/></figure>
+      <figure><Image src={imageUrl} alt="cover" width={450} height={190}/></figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p>{title}</p>
