@@ -14,7 +14,7 @@ export default function Projects() {
   } = useReadCrowdFunding({functionName: 'getProjects'})
   return (
     isPending ? // https://daisyui.com/components/loading
-    <span className="loading loading-spinner loading-lg"></span> :
+    <span className="loading loading-spinner loading-lg"/> :
     // https://tailwindcss.com/docs/grid-template-columns#breakpoints-and-media-queries
     <div className="grid gap-4 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2">
       {projects!.map((project, i) =>
