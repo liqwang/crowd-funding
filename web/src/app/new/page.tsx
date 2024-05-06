@@ -63,8 +63,9 @@ export default function NewProject() {
           onChange={(event) => setDescription(event.target.value)}
         />
 
-        <div className="mt-4">
-        {isConnected ?
+        <div className="mt-4">{
+          !isConnected ?
+          <w3m-connect-button/> :
           <button className="btn bg-sky-400 hover:bg-sky-500 text-white text-lg w-1/3"
             onClick={()=>{
               console.log([title, description, imageUrl, targetFund])
@@ -76,10 +77,8 @@ export default function NewProject() {
           >{isPending ?
               <><span className="loading loading-spinner"/>Creating...</> :
               <><i className="icon-[ic--round-plus] w-7 h-7"/>Create</>
-          }</button> :
-          <w3m-connect-button/>
-        }
-        </div>
+          }</button>
+        }</div>
       </div>
     </>
   )
