@@ -1,6 +1,6 @@
 // Change to client component can fix problem of Wagmi's React Hooks
-// "TypeError: `useReadContract` is not a function",
-// because `EthProvider` is client component
+// "TypeError: `useReadCrowdFunding` is not a function",
+// because `Web3ModalProvider` is client component
 'use client'
 
 import Card from '@/component/card'
