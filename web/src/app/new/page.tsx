@@ -8,11 +8,11 @@ import { parseEther } from 'viem'
 import { useWriteCrowdFunding } from '@/contract'
 
 export default function NewProject() {
-  const [title, setTitle] = useState('')
-  const [targetFund, setTargetFund] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
-  const [uploading, setUploading] = useState(false)
-  const [description, setDescription] = useState('')
+  const [ title, setTitle ] = useState('')
+  const [ targetFund, setTargetFund ] = useState('')
+  const [ imageUrl, setImageUrl ] = useState('')
+  const [ uploading, setUploading ] = useState(false)
+  const [ description, setDescription ] = useState('')
   const { isConnected } = useAccount()
   const { isPending, writeContract: writeCrowdFunding } = useWriteCrowdFunding()
   return (
@@ -72,9 +72,10 @@ export default function NewProject() {
                 args: [title, description, imageUrl, parseEther(targetFund)]
               })
             }}
-          >{isPending ?
-              <><span className="loading loading-spinner"/>Creating...</> :
-              <><i className="icon-[ic--round-plus] w-7 h-7"/>Create</>
+          >{
+            isPending ?
+            <><span className="loading loading-spinner"/>Creating...</> :
+            <><i className="icon-[ic--round-plus] w-7 h-7"/>Create</>
           }</button>
         }</div>
       </div>
