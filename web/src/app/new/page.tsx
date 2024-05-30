@@ -67,7 +67,6 @@ export default function NewProject() {
           <w3m-connect-button/> :
           <button className="btn bg-sky-400 hover:bg-sky-500 text-white text-lg w-1/3"
             onClick={()=>{
-              console.log([title, description, imageUrl, targetFund])
               writeCrowdFunding({
                 functionName: 'createProject',
                 args: [title, description, imageUrl, parseEther(targetFund)]
