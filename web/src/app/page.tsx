@@ -6,7 +6,6 @@
 import Card from '@/component/card'
 import { useReadCrowdFunding } from '@/contract'
 
-
 export default function Projects() {
   const { // https://wagmi.sh/cli/why#the-solution
     data: projects,

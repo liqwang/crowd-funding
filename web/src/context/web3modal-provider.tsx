@@ -10,7 +10,6 @@ import { State, WagmiProvider } from 'wagmi'
 
 import { config, projectId } from '@/../eth.config'
 
-
 const queryClient = new QueryClient()
 
 createWeb3Modal({

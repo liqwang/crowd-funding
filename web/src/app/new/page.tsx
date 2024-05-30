@@ -7,7 +7,6 @@ import { parseEther } from 'viem'
 
 import { useWriteCrowdFunding } from '@/contract'
 
-
 export default function NewProject() {
   const [title, setTitle] = useState('')
   const [targetFund, setTargetFund] = useState('')

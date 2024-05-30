@@ -9,7 +9,6 @@ import './global.css'
 import { config } from '@/../eth.config'
 import Web3ModalProvider from '@/context/web3modal-provider'
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
