@@ -1,3 +1,4 @@
+# Crowd Funding ÐApp
 ## Frontend tech stack 🔥
 - [Next.js](https://nextjs.org) v14.1: React framework for the web, use [App Router](https://nextjs.org/docs/app)
   - [React](https://react.dev)
