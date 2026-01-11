@@ -17,3 +17,7 @@ Contract Address: https://sepolia.etherscan.io/address/0x1bbdaC59c6E90E7AFf2CC96
 - [Solidity](https://soliditylang.org) v0.8.24: Smart Contract programming language
 - [pnpm](https://pnpm.io): Fast and disk space efficient package manager
 
+## Todo
+- [ ] Refactor to monorepo
+- [ ] Smart contract gas optimization
+- [ ] Replace daisyUI with [shadcn/ui](https://ui.shadcn.com)
